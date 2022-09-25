@@ -1,0 +1,62 @@
+com/auth/template/demo/scopes/user/entities/TestUser.java
+ com.auth.template.demo.scopes.user.entities.TestUser
+com/auth/template/demo/scopes/auth/forms/LoginDto.java
+ com.auth.template.demo.scopes.auth.forms.LoginDto
+com/auth/template/demo/scopes/user/entities/User.java
+ com.auth.template.demo.scopes.user.entities.User
+com/auth/template/demo/scopes/auth/forms/SignUpDto.java
+ com.auth.template.demo.scopes.auth.forms.SignUpDto
+com/auth/template/demo/scopes/security/StaticUtils.java
+ com.auth.template.demo.scopes.security.StaticUtils
+com/auth/template/demo/scopes/general/LanguageService.java
+ com.auth.template.demo.scopes.general.LanguageService
+com/auth/template/demo/scopes/user/services/UserService.java
+ com.auth.template.demo.scopes.user.services.UserService
+com/auth/template/demo/scopes/auth/payload/request/SignupRequest.java
+ com.auth.template.demo.scopes.auth.payload.request.SignupRequest
+com/auth/template/demo/scopes/user/repositories/UserRepository.java
+ com.auth.template.demo.scopes.user.repositories.UserRepository
+com/auth/template/demo/scopes/general/LanguageConfig.java
+ com.auth.template.demo.scopes.general.LanguageConfig
+com/auth/template/demo/scopes/auth/payload/response/MessageResponse.java
+ com.auth.template.demo.scopes.auth.payload.response.MessageResponse
+com/auth/template/demo/scopes/token/jwt/AuthEntryPointJwt.java
+ com.auth.template.demo.scopes.token.jwt.AuthEntryPointJwt
+com/auth/template/demo/SecretApplication.java
+ com.auth.template.demo.SecretApplication
+com/auth/template/demo/scopes/user/entities/UserRole.java
+ com.auth.template.demo.scopes.user.entities.UserRole
+com/auth/template/demo/validation/EmailValidator.java
+ com.auth.template.demo.validation.EmailValidator
+com/auth/template/demo/validation/ValidEmail.java
+ com.auth.template.demo.validation.ValidEmail
+com/auth/template/demo/scopes/auth/payload/request/LoginRequest.java
+ com.auth.template.demo.scopes.auth.payload.request.LoginRequest
+com/auth/template/demo/validation/Regexes.java
+ com.auth.template.demo.validation.Regexes
+com/auth/template/demo/scopes/general/WebMvcConfig.java
+ com.auth.template.demo.scopes.general.WebMvcConfig
+com/auth/template/demo/scopes/auth/payload/response/JwtResponse.java
+ com.auth.template.demo.scopes.auth.payload.response.JwtResponse
+com/auth/template/demo/scopes/token/jwt/AuthTokenFilter.java
+ com.auth.template.demo.scopes.token.jwt.AuthTokenFilter
+com/auth/template/demo/scopes/articles/forms/ArticleDto.java
+ com.auth.template.demo.scopes.articles.forms.ArticleDto
+com/auth/template/demo/scopes/general/Initializer.java
+ com.auth.template.demo.scopes.general.Initializer
+com/auth/template/demo/scopes/auth/controller/AuthController.java
+ com.auth.template.demo.scopes.auth.controller.AuthController
+com/auth/template/demo/scopes/articles/repositories/ArticleRepository.java
+ com.auth.template.demo.scopes.articles.repositories.ArticleRepository
+com/auth/template/demo/scopes/security/CustomAuthenticationProvider.java
+ com.auth.template.demo.scopes.security.CustomAuthenticationProvider
+com/auth/template/demo/scopes/articles/services/ArticleService.java
+ com.auth.template.demo.scopes.articles.services.ArticleService
+com/auth/template/demo/scopes/token/TokenServiceImpl.java
+ com.auth.template.demo.scopes.token.TokenServiceImpl
+com/auth/template/demo/scopes/articles/entities/Article.java
+ com.auth.template.demo.scopes.articles.entities.Article
+com/auth/template/demo/scopes/security/SecurityConfig.java
+ com.auth.template.demo.scopes.security.SecurityConfig
+com/auth/template/demo/scopes/articles/controller/ArticleController.java
+ com.auth.template.demo.scopes.articles.controller.ArticleController
