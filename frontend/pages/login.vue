@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row mb-4">
         <div class="col-md-6">
-          <h1>Login</h1>
+          <h1>Login {{authStore.isLoggedIn}}</h1>
         </div>
       </div>
       <div class="row blog-entries">
@@ -33,22 +33,22 @@
 </template>
 
 <script setup>
+import useAuthStore from "../store/auth";
+const route = useRouter()
 
-
-import auth from "../composables/Authentication";
-
-const {login} = auth()
+const authStore = useAuthStore()
 const loginForm = reactive({
   password: "",
   email: ""
 })
 
+onMounted(() => {
+  if(authStore.isLoggedIn)
+    route.push("/")
+})
+
 function sendLoginForm(){
-  if(loginForm.email === '' && loginForm.password === '')
-    return
-
-  login({ email :loginForm.email, password: loginForm.password})
-
+  authStore.login( { email : loginForm.email , password: loginForm.password})
 }
 
 </script>

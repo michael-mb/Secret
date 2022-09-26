@@ -1,3 +1,4 @@
+/*
 import {useRouter, useRuntimeConfig, useState} from "nuxt/app";
 
 function auth (){
@@ -62,14 +63,20 @@ function auth (){
         }).catch(e => { console.log(e)})
     }
 
-    function logout() {
-        user.value = null
-        isLoggedIn.value = false
-        localStorage.setItem("user" , JSON.stringify(user.value))
-        userInfos.value = {}
-        router.push("/login")
-
+    async function getArticles(){
+        await $fetch(BASE_URL + 'api/article/', {
+            server: false,
+            headers: requestHeaders.value,
+            method: 'GET',
+        }).then( response => {
+            console.log("GET ARTICLES")
+            console.log(response)
+        }).catch(e => {
+            console.log(e)
+        })
     }
+
+
 
     return {
         requestHeaders,
@@ -80,3 +87,5 @@ function auth (){
 }
 
 export default auth
+
+ */

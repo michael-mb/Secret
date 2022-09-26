@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     publicRuntimeConfig: {
         BASE_URL : process.env.BASE_URL,
     },
+    buildModules: ['@pinia/nuxt'],
     meta: {
         link: [
             { rel: 'stylesheet', href: '/css/owl.carousel.min.css' },

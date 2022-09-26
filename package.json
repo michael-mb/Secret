@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@pinia/nuxt": "^0.4.2",
+    "@vue/composition-api": "^1.7.1",
     "pinia": "^2.0.22"
   }
 }

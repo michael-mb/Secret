@@ -26,16 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarMenu">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="/">Home</NuxtLink>
+              <NuxtLink class="nav-link" to="/" v-if="authStore.isLoggedIn">Home</NuxtLink>
             </li>
 
             <li class="nav-item">
-              <NuxtLink v-if="!isLoggedIn" class="nav-link" to="/login">Login</NuxtLink>
+              <NuxtLink  class="nav-link" v-if="!authStore.isLoggedIn" to="/login">Login</NuxtLink>
             </li>
 
-            {{isLoggedIn}}
+
             <li class="nav-item">
-              <NuxtLink v-if="isLoggedIn" class="nav-link" @click="logout">Logout</NuxtLink>
+              <NuxtLink class="nav-link" v-if="authStore.isLoggedIn" @click="logout">Logout</NuxtLink>
             </li>
 
           </ul>
@@ -47,10 +47,20 @@
 </template>
 
 <script setup>
-import auth from "../composables/Authentication";
 
-const {isLoggedIn , logout} = auth()
+import useAuthStore from "../store/auth";
 
+const route = useRouter()
+const authStore = useAuthStore()
+
+onMounted(() => {
+  authStore.initUser()
+})
+
+function logout (){
+  authStore.logout()
+  route.push("/login")
+}
 </script>
 
 <style scoped>
