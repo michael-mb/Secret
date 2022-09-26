@@ -3,6 +3,9 @@ export default defineNuxtConfig({
     static: {
         prefix: false
     },
+    publicRuntimeConfig: {
+        BASE_URL : process.env.BASE_URL,
+    },
     meta: {
         link: [
             { rel: 'stylesheet', href: '/css/owl.carousel.min.css' },
