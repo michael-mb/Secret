@@ -39,11 +39,18 @@ public class ArticleController {
     @GetMapping("/")
     public ResponseEntity<?> findAllArticles(@RequestHeader (name="Authorization") Optional<String> token){
 
+
         if(token.isEmpty())
             return ResponseEntity.badRequest()
                     .body("The Token is empty");
 
-        Long userId = userService.getIdFromEmail(tokenService.getEmailFromToken(token.get()));
+        Long userId = null;
+        try {
+            userId = userService.getIdFromEmail(tokenService.getEmailFromToken(token.get()));
+        } catch (Exception e){
+            return ResponseEntity.badRequest().body("The Token is broken");
+        }
+
 
         return ResponseEntity.ok(articleService.findArticlesWithUserId(userId));
     }

@@ -51,10 +51,10 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: "index"
-}
+<script setup>
+definePageMeta({
+
+})
 </script>
 
 <style scoped>

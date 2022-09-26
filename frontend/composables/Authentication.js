@@ -1,28 +1,29 @@
-import {useFetch, useRequestHeaders, useRouter, useRuntimeConfig} from "nuxt/app";
+import {useRouter, useRuntimeConfig, useState} from "nuxt/app";
 
 function auth (){
-    const config = useRuntimeConfig()
-    const BASE_URL = config.public.BASE_URL
+    const BASE_URL = useRuntimeConfig().public.BASE_URL
 
     const user = useState('user' , () => null)
     const userInfos = useState('userInfos' , () => null)
     const requestHeaders = useState('requestHeaders' , () => {})
+    const isLoggedIn = useState('loggedIn', () => false)
     const router = useRouter()
 
     if(process.client){
         let user_local = localStorage.getItem('user')
-        if(!user_local)
-            user.value = { id: -1, token: ""}
+        console.log("UUUUSEER")
+        console.log(user_local === "null")
+        if(user_local === "null"){
+            user.value = null
+            isLoggedIn.value = false
+        }
         else {
             try{
                 user.value = JSON.parse(user_local)
+                isLoggedIn.value = true
                 requestHeaders.value = {Authorization : user.value.token}
-                // instance.defaults.headers.common['Authorization'] = user.token // ---> achten
             }catch(ex){
-                user.value = {
-                    id: -1,
-                    token: "",
-                }
+                user.value = null
             }
         }
 
@@ -37,7 +38,7 @@ function auth (){
                 password : password
             }
         }).then( response => {
-            let toStore ={
+            let toStore = {
                 id: response.id,
                 token: response.accessToken
             }
@@ -45,40 +46,37 @@ function auth (){
             user.value = toStore
             requestHeaders.value = {Authorization : user.value.token}
             getUserInfos()
-        }).catch(e => { console.log(e)})
+            router.push("/")
+            isLoggedIn.value = true
+        }).catch(e => { console.log(e),isLoggedIn.value = false})
 
     }
 
     async function getUserInfos(){
+        console.log("USER INFOS")
         await $fetch(BASE_URL + 'api/auth/info', {
             method: 'POST',
             body:  user.value.token,
         }).then( response => {
-            console.log("USER INFOS")
             console.log(response)
             userInfos.value = response
-
-
-            getArticles()
         }).catch(e => { console.log(e)})
     }
 
-    async function getArticles(){
+    function logout() {
+        user.value = null
+        isLoggedIn.value = false
+        localStorage.setItem("user" , JSON.stringify(user.value))
+        userInfos.value = {}
+        router.push("/login")
 
-        await $fetch(BASE_URL + 'api/article/', {
-            server: false,
-            headers: requestHeaders.value,
-            method: 'GET',
-        }).then( response => {
-            console.log("GET ARTICLES")
-            console.log(response)
-        }).catch(e => {
-            console.log(e)
-        })
     }
 
     return {
-        login
+        requestHeaders,
+        isLoggedIn,
+        login,
+        logout
     }
 }
 

@@ -30,8 +30,14 @@
             </li>
 
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="/login">Login</NuxtLink>
+              <NuxtLink v-if="!isLoggedIn" class="nav-link" to="/login">Login</NuxtLink>
             </li>
+
+            {{isLoggedIn}}
+            <li class="nav-item">
+              <NuxtLink v-if="isLoggedIn" class="nav-link" @click="logout">Logout</NuxtLink>
+            </li>
+
           </ul>
 
         </div>
@@ -41,6 +47,9 @@
 </template>
 
 <script setup>
+import auth from "../composables/Authentication";
+
+const {isLoggedIn , logout} = auth()
 
 </script>
 
@@ -52,5 +61,9 @@ a.nuxt-link-active {
 .router-link-exact-active {
   font-weight: bold;
   color: #6611f2ad !important;
+}
+
+.nav-link{
+  cursor: pointer;
 }
 </style>
