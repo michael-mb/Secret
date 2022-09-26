@@ -11,7 +11,6 @@ function auth (){
 
     if(process.client){
         let user_local = localStorage.getItem('user')
-        console.log("UUUUSEER")
         console.log(user_local === "null")
         if(user_local === "null"){
             user.value = null
