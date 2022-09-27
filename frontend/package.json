@@ -11,5 +11,6 @@
     "nuxt": "3.0.0-rc.11"
   },
   "dependencies": {
+    "marked": "^4.1.0"
   }
 }

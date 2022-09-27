@@ -11,12 +11,9 @@
               <p>Email : {{authStore.userInfos.email}}</p>
               <p>GrantedAuthorities: <span class="mr-2" v-for="auth in authStore.userInfos.authorities" :key="auth.authority">
                 {{auth.authority}} </span> </p>
-
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </section>

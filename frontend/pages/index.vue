@@ -17,9 +17,9 @@
                   <div class="post-meta">
                     <span class="mr-2">{{article.date}} </span> &bullet;
                   </div>
-                  <a href="/" class="blog-entry">
+                  <NuxtLink :to="'/articles/'+article.id" class="blog-entry">
                     <h2>{{article.title}}</h2>
-                  </a>
+                  </NuxtLink>
                 </div>
             </div>
           </div>
@@ -40,7 +40,6 @@ const articleStore = useArticleStore()
 onMounted(() => {
   if(!authStore.isLoggedIn)
     route.push("/login")
-
   articleStore.fetchArticles(authStore.user.token)
 })
 

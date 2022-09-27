@@ -3,7 +3,8 @@ import {defineStore} from 'pinia';
 const BASE_URL = "http://localhost:8090"
 
 const state = () => ({
-    articles : []
+    articles : [],
+    selectedArticle: undefined
 })
 
 const getters = {
@@ -11,8 +12,8 @@ const getters = {
 }
 
 const actions = {
-    async fetchArticles(token){
-        await $fetch(BASE_URL + '/api/article/', {
+     fetchArticles(token){
+         $fetch(BASE_URL + '/api/article/', {
             method: 'GET',
             headers : {
                 "Authorization" : token
@@ -39,6 +40,9 @@ const actions = {
         }).catch(e => {
             console.log(e)
         })
+    },
+    selectArticle(id){
+        this.selectedArticle = this.articles.find( elem => Number(elem.id) === Number(id))
     }
 }
 
