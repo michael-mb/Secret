@@ -33,6 +33,9 @@
               <NuxtLink  class="nav-link" v-if="!authStore.isLoggedIn" to="/login">Login</NuxtLink>
             </li>
 
+            <li class="nav-item">
+              <NuxtLink class="nav-link" v-if="authStore.isLoggedIn" to="/user">{{authStore.userInfos.firstname}}@{{authStore.userInfos.lastname}}</NuxtLink>
+            </li>
 
             <li class="nav-item">
               <NuxtLink class="nav-link" v-if="authStore.isLoggedIn" @click="logout">Logout</NuxtLink>
@@ -55,6 +58,11 @@ const authStore = useAuthStore()
 
 onMounted(() => {
   authStore.initUser()
+  if(!authStore.isLoggedIn)
+    route.push("/login")
+
+  authStore.fetchUserInfos()
+
 })
 
 function logout (){

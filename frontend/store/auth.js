@@ -1,5 +1,4 @@
 import {defineStore} from 'pinia';
-import {useRoute} from "nuxt/app";
 
 const BASE_URL = "http://localhost:8090"
 
@@ -23,8 +22,8 @@ const getters = {
 }
 
 const actions = {
-    async login({email,password}){
-        await $fetch(BASE_URL + '/api/auth/login', {
+     async login({email,password}){
+         await $fetch(BASE_URL + '/api/auth/login', {
             method: 'POST',
             body: {
                 email : email,
@@ -37,9 +36,17 @@ const actions = {
             }
             localStorage.setItem("user" , JSON.stringify(toStore))
             this.user = toStore
+            window.location = "/"
         }).catch(e => { console.log(e)})
     },
-
+    async fetchUserInfos(){
+        await $fetch(BASE_URL + '/api/auth/info', {
+            method: 'POST',
+            body:  user.token,
+        }).then( response => {
+            this.userInfos = response
+        }).catch(e => { console.log(e)})
+    },
     logout(){
         this.user = {
             id: -1,
