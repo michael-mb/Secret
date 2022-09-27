@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row mb-4">
         <div class="col-md-6">
-          <h1>Login {{authStore.isLoggedIn}}</h1>
+          <h1>Login</h1>
         </div>
       </div>
       <div class="row blog-entries">
@@ -18,12 +18,13 @@
               <input id="phone" class="form-control " type="password" v-model="loginForm.password">
             </div>
           </div>
-
+          <p class="error"> {{authStore.login_error}}</p>
           <div class="row">
             <div class="col-md-6 form-group">
               <input type="submit" value="Login" class="btn btn-primary" @click="sendLoginForm">
             </div>
           </div>
+
           <p>Don't have an account yet? Create one by clicking <NuxtLink to="register">here</NuxtLink> </p>
         </div>
         <Michael_Meta/>
@@ -54,5 +55,7 @@ function sendLoginForm(){
 </script>
 
 <style scoped>
-
+.error{
+  color: red;
+}
 </style>

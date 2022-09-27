@@ -6,7 +6,8 @@ let user
 
 const state = () => ({
     user : user,
-    userInfos : {}
+    userInfos : {},
+    login_error : null
 })
 
 const getters = {
@@ -37,6 +38,24 @@ const actions = {
             localStorage.setItem("user" , JSON.stringify(toStore))
             this.user = toStore
             window.location = "/"
+        }).catch(e => { console.log(e)
+             this.login_error = "Password or Email are incorrect ! 🥲"
+        })
+    },
+
+    async register (email, firstname, lastname, password) {
+         console.log("REGISTER")
+        await $fetch(BASE_URL + '/api/auth/register', {
+            method: 'POST',
+            body: {
+                email : email,
+                firstname : firstname,
+                lastname : lastname,
+                password : password,
+                passwordAgain : password,
+            }
+        }).then(() => {
+            this.login({email, password})
         }).catch(e => { console.log(e)})
     },
     async fetchUserInfos(){

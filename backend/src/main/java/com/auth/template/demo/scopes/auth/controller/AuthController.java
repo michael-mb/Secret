@@ -78,6 +78,8 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> registerUser( @RequestBody SignUpDto signUpDto) {
 
+        System.out.println("ENTER HIER");
+        System.out.println(signUpDto);
         if (userService.doesEmailAlreadyExists(signUpDto.getEmail())) {
             return ResponseEntity
                     .badRequest()

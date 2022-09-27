@@ -25,7 +25,22 @@ const actions = {
             console.log(e)
         })
     },
-
+    createArticle(title, text, date, ownerId){
+        $fetch(BASE_URL + '/api/article/', {
+            method: 'POST',
+            body: {
+                title: title,
+                text: text,
+                date: date,
+                ownerID: ownerId
+            }
+        }).then( response => {
+            this.articles.push(response)
+            window.location = "/"
+        }).catch(e => {
+            console.log(e)
+        })
+    },
     deleteArticle(id,token){
          $fetch(BASE_URL + '/api/article/?id='+id, {
             method: 'DELETE',
@@ -37,6 +52,7 @@ const actions = {
             this.articles = this.articles.filter( elem => {
                 return elem.id !== id
             })
+            window.location = "/"
         }).catch(e => {
             console.log(e)
         })

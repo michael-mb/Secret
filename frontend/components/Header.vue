@@ -34,6 +34,10 @@
             </li>
 
             <li class="nav-item">
+              <NuxtLink class="nav-link" v-if="authStore.isLoggedIn" to="/create">Create</NuxtLink>
+            </li>
+
+            <li class="nav-item">
               <NuxtLink class="nav-link" v-if="authStore.isLoggedIn" to="/user">{{authStore.userInfos.firstname}}@{{authStore.userInfos.lastname}}</NuxtLink>
             </li>
 

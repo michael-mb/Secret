@@ -29,6 +29,7 @@ public class ArticleController {
         if(articleDto == null)
             return ResponseEntity.badRequest()
                     .body("ArticleDto is null");
+
         if(articleDto.title == null || articleDto.text == null || articleDto.date == null || articleDto.ownerID == null)
             return  ResponseEntity.badRequest()
                     .body("One of the parameters is null");

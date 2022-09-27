@@ -6,6 +6,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="post-meta">
+                <span class="delete-cross" @click="deleteById"> 🚮 </span>
                 <span class="mr-2">{{articleStore.selectedArticle.date}}</span> • </div>
 
               <h2 class="mb-4">{{articleStore.selectedArticle.title}}</h2>
@@ -47,8 +48,20 @@ if(articleStore.articles.length > 0){
   articleStore.selectArticle(id)
 }
 
+function deleteById(){
+  if(confirm("Do you really want to delete this article ?"))
+    articleStore.deleteArticle(id, authStore.user.token)
+}
+
 </script>
 
 <style scoped>
 
+.delete-cross {
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  right: 1.5rem;
+  top: 0.2rem;
+}
 </style>

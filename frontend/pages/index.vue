@@ -11,8 +11,6 @@
         <div class="col-md-12 col-lg-12 main-content">
           <div class="row">
             <div class="col-md-4" v-for="article in articleStore.articles" :key="article.id">
-              <span class="delete-cross" @click="deleteById(article.id)"> ❌</span>
-
                 <div class="blog-content-body">
                   <div class="post-meta">
                     <span class="mr-2">{{article.date}} </span> &bullet;
@@ -43,22 +41,10 @@ onMounted(() => {
   articleStore.fetchArticles(authStore.user.token)
 })
 
-function deleteById(id){
-  if(confirm("Do you really want to delete this article ?"))
-    articleStore.deleteArticle(id, authStore.user.token)
-}
 </script>
 
 <style scoped>
 .mh-400{
   min-height: 405px;
-}
-
-.delete-cross {
-  cursor: pointer;
-  font-size: 12px;
-  position: absolute;
-  right: 1.5rem;
-  top: 0.2rem;
 }
 </style>

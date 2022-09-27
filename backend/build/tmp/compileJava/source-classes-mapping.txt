@@ -54,9 +54,9 @@ com/auth/template/demo/scopes/articles/services/ArticleService.java
  com.auth.template.demo.scopes.articles.services.ArticleService
 com/auth/template/demo/scopes/token/TokenServiceImpl.java
  com.auth.template.demo.scopes.token.TokenServiceImpl
-com/auth/template/demo/scopes/auth/controller/AuthController.java
- com.auth.template.demo.scopes.auth.controller.AuthController
 com/auth/template/demo/scopes/general/WebMvcConfig.java
  com.auth.template.demo.scopes.general.WebMvcConfig
 com/auth/template/demo/scopes/articles/controller/ArticleController.java
  com.auth.template.demo.scopes.articles.controller.ArticleController
+com/auth/template/demo/scopes/auth/controller/AuthController.java
+ com.auth.template.demo.scopes.auth.controller.AuthController
