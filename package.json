@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "@nuxt/content": "^1.15.1",
-    "@pinia/nuxt": "^0.4.2",
-    "@vue/composition-api": "^1.7.1",
-    "marked": "^4.1.0",
-    "pinia": "^2.0.22"
-  }
-}
