@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MutterKonzern>
+    <Aktienleger name="Jackson" id="1">
+        <Aktie>Yahoo</Aktie>
+        <Aktie>MSN</Aktie>
+        <Aktie>Meta</Aktie>
+    </Aktienleger>
+
+    <Aktienleger name="Five" id="2">
+        <Aktie>Loreal</Aktie>
+        <Aktie>Dior</Aktie>
+        <Aktie>MilanAC</Aktie>
+    </Aktienleger>
+
+    <Aktienleger name="Ghislain" id="3">
+        <Aktie>Heraeus</Aktie>
+        <Aktie>Reynders</Aktie>
+        <Aktie>Zebra</Aktie>
+    </Aktienleger>
+
+    <Aktienleger name="Sandra" id="4">
+        <Aktie>Prada</Aktie>
+        <Aktie>YvesSaintLaurent</Aktie>
+        <Aktie>Chanel</Aktie>
+    </Aktienleger>
+
+    <Aktienleger name="Warren" id="5">
+        <Aktie>Carrefour</Aktie>
+        <Aktie>Aldi</Aktie>
+        <Aktie>Lidl</Aktie>
+    </Aktienleger>
+
+    <Aktienleger name="Buffet" id="6">
+        <Aktie>EON</Aktie>
+        <Aktie>ENBW</Aktie>
+        <Aktie>ENEO</Aktie>
+    </Aktienleger>
+
+    <Aktienleger name="Tatiana" id="7">
+        <Aktie>Exxon</Aktie>
+        <Aktie>Total</Aktie>
+        <Aktie>Yukos</Aktie>
+    </Aktienleger>
+
+    <Aktienleger name="Patrick" id="8">
+        <Aktie>Rolex</Aktie>
+        <Aktie>Samsung</Aktie>
+        <Aktie>Nokia</Aktie>
+    </Aktienleger>
+
+    <Aktienleger name="John" id="9">
+        <Aktie>Apple</Aktie>
+        <Aktie>Amazon</Aktie>
+        <Aktie>Google</Aktie>
+    </Aktienleger>
+
+    <Aktienleger name="Peter" id="10">
+        <Aktie>Apple</Aktie>
+        <Aktie>Amazon</Aktie>
+        <Aktie>Google</Aktie>
+    </Aktienleger>
+
+    <TochterFirma name="Binance">
+        <Standort>Greifswald</Standort>
+        <Standort>Berlin</Standort>
+        <Standort>Ulm</Standort>
+        <Standort>Braunschweig</Standort>
+        <Standort>Ravensburg</Standort>
+    </TochterFirma>
+
+    <TochterFirma name="DeutscheBank">
+        <Standort>Hanover</Standort>
+        <Standort>Stuttgart</Standort>
+        <Standort>Bremen</Standort>
+        <Standort>Magdeburg</Standort>
+        <Standort>Dresden</Standort>
+    </TochterFirma>
+
+    <TochterFirma name="Frauenhofer">
+        <Standort>Berlin</Standort>
+        <Standort>Ottawa</Standort>
+        <Standort>NewFoundland</Standort>
+        <Standort>Toronto</Standort>
+        <Standort>QUebec</Standort>
+    </TochterFirma>
+
+
+</MutterKonzern>
+
