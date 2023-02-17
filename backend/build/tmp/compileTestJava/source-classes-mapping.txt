@@ -1,0 +1,2 @@
+com/auth/template/demo/DemoApplicationTests.java
+ com.auth.template.demo.DemoApplicationTests

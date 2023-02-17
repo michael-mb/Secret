@@ -9,6 +9,7 @@ const state = () => ({
 
 const getters = {
     getArticles : (state) => state.articles,
+    getSelectedArticle : (state) => state.selectedArticle,
 }
 
 const actions = {
@@ -24,6 +25,21 @@ const actions = {
         }).catch(e => {
             console.log(e)
         })
+    },
+    findArticle(token, id){
+        $fetch(BASE_URL + '/api/article/find?id='+id, {
+            method: 'GET',
+            headers : {
+                "Authorization" : token
+            }
+        }).then( response => {
+            console.log("RESPONSE",response)
+             this.selectedArticle = response
+        }).catch(e => {
+             this.selectedArticle = null
+            console.log(e)
+        })
+
     },
     createArticle(title, text, date, ownerId){
         $fetch(BASE_URL + '/api/article/', {
