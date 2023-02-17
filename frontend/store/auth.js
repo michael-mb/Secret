@@ -59,12 +59,14 @@ const actions = {
         }).catch(e => { console.log(e)})
     },
     async fetchUserInfos(){
-        await $fetch(BASE_URL + '/api/auth/info', {
-            method: 'POST',
-            body:  user.token,
-        }).then( response => {
-            this.userInfos = response
-        }).catch(e => { console.log(e)})
+        if(user.id !== -1){
+            await $fetch(BASE_URL + '/api/auth/info', {
+                method: 'POST',
+                body:  user.token,
+            }).then( response => {
+                this.userInfos = response
+            }).catch(e => { console.log(e)})
+        }
     },
     logout(){
         this.user = {
