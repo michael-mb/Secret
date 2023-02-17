@@ -39,8 +39,6 @@ public class ArticleController {
 
     @GetMapping("/")
     public ResponseEntity<?> findAllArticles(@RequestHeader (name="Authorization") Optional<String> token){
-
-
         if(token.isEmpty())
             return ResponseEntity.badRequest()
                     .body("The Token is empty");
@@ -51,7 +49,6 @@ public class ArticleController {
         } catch (Exception e){
             return ResponseEntity.badRequest().body("The Token is broken");
         }
-
 
         return ResponseEntity.ok(articleService.findArticlesWithUserId(userId));
     }
@@ -107,7 +104,7 @@ public class ArticleController {
                     .body("The Token is empty");
 
         Article article = new Article(articleDto.text, articleDto.title, articleDto.ownerID, articleDto.date);
-        System.out.println(articleDto);
+
         article.setId(articleDto.id);
 
         return ResponseEntity.ok(articleService.updateArticle(article));
